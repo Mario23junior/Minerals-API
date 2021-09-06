@@ -18,6 +18,7 @@ public class Propriedadesfisicas {
 	private String fratura;
 	private String Brilho;
 	private String tenacidade;
+	
 	public Long getId() {
 		return id;
 	}
