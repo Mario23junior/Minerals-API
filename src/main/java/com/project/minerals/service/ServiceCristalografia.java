@@ -36,7 +36,7 @@ public class ServiceCristalografia {
 	public void ExceptionDuplicateData(Cristalografia cristalografia) {
 		Cristalografia findData = cristalografiaRepository.findBySistemaCristalino(cristalografia.getSistemaCristalino());
 		if(findData != null && findData.getId() != cristalografia.getId()) {
-			throw new ValidatingDuplicateValues(String.format("Sistema de %s já cadastrado na base", cristalografia.getSistemaCristalino()));
+			throw new ValidatingDuplicateValues(String.format("Sistema %s já cadastrado no banco de dados", cristalografia.getSistemaCristalino()));
 		}
 		
 	}

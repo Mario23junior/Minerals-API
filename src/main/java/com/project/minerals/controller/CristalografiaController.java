@@ -1,5 +1,7 @@
 package com.project.minerals.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +22,7 @@ public class CristalografiaController {
  	}
 	
 	@PostMapping
-	public ResponseEntity<CristalografiaDTO> save(@RequestBody CristalografiaDTO cristalografiaDTO) {
+	public ResponseEntity<CristalografiaDTO> save(@RequestBody @Valid CristalografiaDTO cristalografiaDTO) {
 		return serviceCristalografia.saveCristalo(cristalografiaDTO);
 	}
 }
