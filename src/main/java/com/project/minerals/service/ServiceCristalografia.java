@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.project.minerals.DTOModel.CristalografiaDTO;
+import com.project.minerals.Exceptions.ValidatingDuplicateValues;
 import com.project.minerals.model.Cristalografia;
 import com.project.minerals.repository.CristalografiaRepository;
 
@@ -28,9 +29,16 @@ public class ServiceCristalografia {
 	}
 	
 	public Cristalografia saveConverter(Cristalografia cristalografia) {
+		ExceptionDuplicateData(cristalografia);
 		return cristalografiaRepository.save(cristalografia);
 	}
 	
-	
+	public void ExceptionDuplicateData(Cristalografia cristalografia) {
+		Cristalografia findData = cristalografiaRepository.findBySistemaCristalino(cristalografia.getSistemaCristalino());
+		if(findData != null && findData.getId() != cristalografia.getId()) {
+			throw new ValidatingDuplicateValues(String.format("Sistema de %s já cadastrado na base", cristalografia.getSistemaCristalino()));
+		}
+		
+	}
 	
 }
