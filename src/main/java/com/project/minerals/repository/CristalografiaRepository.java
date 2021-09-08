@@ -6,4 +6,6 @@ import com.project.minerals.model.Cristalografia;
 
 public interface CristalografiaRepository extends JpaRepository<Cristalografia, Long> {
 
+	Cristalografia findBySistemaCristalino(String sistemaCristalino);
+
 }
