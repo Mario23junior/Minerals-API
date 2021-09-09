@@ -17,10 +17,10 @@ public class TesteServiceCristalografia {
    
 	@Autowired
 	private CristalografiaRepository cristalografiaRepository;
-	
+	 	
 	@Test
 	@DisplayName("Testando salvamento dos dados no banco de dados")
-	public void Test() {
+	public void save() {
 		
 		//Cenario
 		Cristalografia cristalografia = new Cristalografia();
@@ -36,4 +36,18 @@ public class TesteServiceCristalografia {
 		// verificacao
  		 
         }
+	
+	@Test
+	@DisplayName("testando listagem de dados cadastrados no banco")
+	public void ListId() {
+		
+		Cristalografia cristalografia = new Cristalografia();
+		cristalografia.setId(1L);
+		cristalografia.setSistemaCristalino("Trigonal");
+		cristalografia.setParticao("romboédrica");
+		cristalografia.setDiafaneidade("Opaco,Transparente");
+		cristalografia.setHabitoCristalino("hexagonal");
+				
+		cristalografiaRepository.findById(cristalografia.getId());
+	}
 }
