@@ -1,5 +1,7 @@
 package com.project.minerals.service;
 
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +40,16 @@ public class ServiceCristalografia {
 		if(findData != null && findData.getId() != cristalografia.getId()) {
 			throw new ValidatingDuplicateValues(String.format("Sistema %s já cadastrado no banco de dados", cristalografia.getSistemaCristalino()));
 		}
-		
 	}
+		
+	public ResponseEntity <CristalografiaDTO> listCristalo(Long id) {
+	    Optional <Cristalografia> listIdInfo = cristalografiaRepository.findById(id);
+	    if (listIdInfo.isPresent()) {
+	        return ResponseEntity.ok(modelMapper.map(listIdInfo.get(), CristalografiaDTO.class));
+	    } else {
+	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	    }
+	}
+		
 	
 }
