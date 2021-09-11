@@ -50,6 +50,27 @@ public class ServiceCristalografia {
 	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	    }
 	}
-		
+	 
+ 
+	public ResponseEntity<CristalografiaDTO> updateCristalo(Long id, Cristalografia cristalografia) {
+		ExceptionDuplicateData(cristalografia);
+		Optional<Cristalografia> listInfo = cristalografiaRepository.findById(id);
+		if(listInfo.isPresent()) {
+ 			Cristalografia cristaloInstace = listInfo.get();
+ 			cristaloInstace.setId(cristalografia.getId());
+ 			cristaloInstace.setSistemaCristalino(cristalografia.getSistemaCristalino());
+ 			cristaloInstace.setParticao(cristalografia.getParticao());
+ 			cristaloInstace.setDiafaneidade(cristalografia.getParticao());
+ 			cristaloInstace.setHabitoCristalino(cristalografia.getHabitoCristalino());
+ 		 
+ 		   
+ 			cristalografiaRepository.save(cristaloInstace);
+ 			return ResponseEntity.ok(modelMapper.map(cristaloInstace, CristalografiaDTO.class));
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
 	
 }
+
