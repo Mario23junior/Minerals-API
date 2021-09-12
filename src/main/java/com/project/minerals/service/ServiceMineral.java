@@ -1,5 +1,7 @@
 package com.project.minerals.service;
 
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,4 +41,17 @@ public class ServiceMineral {
 			throw new ValidatingDuplicateValues(String.format(" O mineral %s já cadastrado no banco de dados por favor insira um novo cadastro", mineral.getNome()));
 		}
 	}
+	
+	
+	public ResponseEntity<MineralsDTO> listMineral(Long id) {
+		Optional<Mineral> listMine = mineralsRepository.findById(id);
+		if(listMine.isPresent()) {
+			return ResponseEntity.ok(modelMapper.map(listMine.get(), MineralsDTO.class));
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		
+	}
+	
+	
 }
