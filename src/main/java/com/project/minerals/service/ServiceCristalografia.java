@@ -72,5 +72,16 @@ public class ServiceCristalografia {
 	}
 	
 	
+	public ResponseEntity<Cristalografia> deleteCristalo(Long id) {
+		Optional<Cristalografia> listId = cristalografiaRepository.findById(id);
+		   if(listId.isPresent()) {
+			   cristalografiaRepository.delete(listId.get());
+			   return new ResponseEntity<>(HttpStatus.OK);
+		   }else {
+			   return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		   }
+	}
+	
+	
 }
 
