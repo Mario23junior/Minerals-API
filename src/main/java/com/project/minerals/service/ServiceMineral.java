@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.project.minerals.DTOModel.MineralsDTO;
+import com.project.minerals.Exceptions.ValidatingDuplicateValues;
 import com.project.minerals.model.Mineral;
 import com.project.minerals.repository.MineralsRepository;
 
@@ -28,6 +29,14 @@ public class ServiceMineral {
 	}
 	
 	public Mineral saveConverter(Mineral mineral) {
+		ExceptionDuplicateDataMinerals(mineral);
 		return mineralsRepository.save(mineral);
+	}
+	
+	public void ExceptionDuplicateDataMinerals(Mineral mineral) {
+		Mineral findInfo = mineralsRepository.findByNome(mineral.getNome());
+		if(findInfo != null && findInfo.getId() != mineral.getId()) {
+			throw new ValidatingDuplicateValues(String.format(" O mineral %s já cadastrado no banco de dados por favor insira um novo cadastro", mineral.getNome()));
+		}
 	}
 }

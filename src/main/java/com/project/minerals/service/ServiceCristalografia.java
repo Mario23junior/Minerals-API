@@ -62,7 +62,6 @@ public class ServiceCristalografia {
  			cristaloInstace.setParticao(cristalografia.getParticao());
  			cristaloInstace.setDiafaneidade(cristalografia.getParticao());
  			cristaloInstace.setHabitoCristalino(cristalografia.getHabitoCristalino());
- 		 
  		   
  			cristalografiaRepository.save(cristaloInstace);
  			return ResponseEntity.ok(modelMapper.map(cristaloInstace, CristalografiaDTO.class));
