@@ -49,9 +49,27 @@ public class ServiceMineral {
 			return ResponseEntity.ok(modelMapper.map(listMine.get(), MineralsDTO.class));
 		} else {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		}
-		
+		}	
 	}
 	
-	
+	public ResponseEntity<MineralsDTO>  updateMinerals(Long id, Mineral minerals) {
+		ExceptionDuplicateDataMinerals(minerals);
+		Optional<Mineral> listList = mineralsRepository.findById(id);
+		if(listList.isPresent()){
+		   Mineral mineralsData = listList.get();
+		   mineralsData.setNome(minerals.getNome());
+		   mineralsData.setCategoria(minerals.getCategoria());
+		   mineralsData.setCor(minerals.getCor());
+		   mineralsData.setFormulaQuimica(minerals.getFormulaQuimica());
+		   mineralsData.setClassificacao(minerals.getClassificacao());
+		   mineralsRepository.save(mineralsData);
+		   return ResponseEntity.ok(modelMapper.map(mineralsData, MineralsDTO.class));
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+
 }
+
+ 
+
