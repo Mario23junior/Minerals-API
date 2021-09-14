@@ -11,4 +11,5 @@ public interface MineralsRepository extends JpaRepository<Mineral, Long> {
 	 Mineral findByNome (String Nome);
 
 	Optional<Mineral>  findByCategoriaIgnoreCaseContaining(String categoria);
+	Optional<Mineral> findByClassificacaoIgnoreCaseContaining(String classificacao);
 }

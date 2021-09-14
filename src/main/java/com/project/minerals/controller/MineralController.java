@@ -39,6 +39,11 @@ public class MineralController {
 		return serviceMineral.ListCategoria(categoria);
 	}
 	
+	@GetMapping("classificacao/{classificacao}")
+	public ResponseEntity<MineralsDTO> listClassificacao(@PathVariable String classificacao) {
+		return serviceMineral.ListcClassificacao(classificacao);
+	}
+	
 	@PutMapping("/{id}")
 	public ResponseEntity<MineralsDTO> update(@PathVariable Long id, @RequestBody Mineral mineral){
 		return serviceMineral.updateMinerals(id, mineral);
