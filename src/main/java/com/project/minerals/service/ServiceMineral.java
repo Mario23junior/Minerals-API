@@ -52,6 +52,15 @@ public class ServiceMineral {
 		}	
 	}
 	
+	public ResponseEntity<MineralsDTO> ListCategoria(String categoria) {
+		Optional<Mineral> listMine = mineralsRepository.findByCategoriaIgnoreCaseContaining(categoria);
+		if(listMine.isPresent()) {
+			return ResponseEntity.ok(modelMapper.map(listMine.get(), MineralsDTO.class));
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}	
+	}
+	
 	public ResponseEntity<MineralsDTO>  updateMinerals(Long id, Mineral minerals) {
 		ExceptionDuplicateDataMinerals(minerals);
 		Optional<Mineral> listList = mineralsRepository.findById(id);
