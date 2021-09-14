@@ -68,6 +68,16 @@ public class ServiceMineral {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 	}
+	
+	public ResponseEntity<Mineral> deleteMinerals(Long id) {
+		Optional<Mineral> deleteList = mineralsRepository.findById(id);
+		if(deleteList.isPresent()) {
+		     mineralsRepository.delete(deleteList.get());
+			 return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
 
 }
 
