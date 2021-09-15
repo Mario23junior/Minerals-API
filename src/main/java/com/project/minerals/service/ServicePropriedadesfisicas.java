@@ -53,6 +53,16 @@ public class ServicePropriedadesfisicas {
  			}
  		}
  		
+ 		
+ 		public ResponseEntity<PropriedadesfisicasDTO> listByTenacidade(String tenacidade) {
+ 			Optional<Propriedadesfisicas> listData = propriedadesfisicasRepository.findByTenacidadeIgnoreCaseContaining(tenacidade);
+ 			if(listData.isPresent()) {
+ 				return ResponseEntity.ok(modelMapper.map(listData.get(), PropriedadesfisicasDTO.class));
+ 			} else {
+ 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+ 			}
+ 		}
+ 		
 	}
 
 
