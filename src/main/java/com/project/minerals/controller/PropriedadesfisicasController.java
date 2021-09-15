@@ -12,7 +12,7 @@ import com.project.minerals.DTOModel.PropriedadesfisicasDTO;
 import com.project.minerals.service.ServicePropriedadesfisicas;
 
 @RestController
-@RequestMapping("/api/v1/minerais/propriedadesFisicas/")
+@RequestMapping("/api/v1/minerais/propriedadesFisicas")
 public class PropriedadesfisicasController {
   
 	private ServicePropriedadesfisicas servicePropriedadesfisicas;
@@ -29,5 +29,10 @@ public class PropriedadesfisicasController {
 	@GetMapping("/{id}")
 	public ResponseEntity<PropriedadesfisicasDTO> list (@PathVariable Long id) {
 		return servicePropriedadesfisicas.list(id);
+	}
+	
+	@GetMapping("tenacidade/{tenacidade}")
+	public ResponseEntity<PropriedadesfisicasDTO> listPorTenacidade(@PathVariable String tenacidade) {
+		return servicePropriedadesfisicas.listByTenacidade(tenacidade);
 	}
 }
