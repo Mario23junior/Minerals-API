@@ -78,6 +78,15 @@ public class ServicePropriedadesOpticas {
 		}
 	}
 	
+	public ResponseEntity<PropriedadesOpticas> deletePropriedadeOpti(Long id) {
+			Optional<PropriedadesOpticas> deleteList = propriOptRepo.findById(id);
+			if(deleteList.isPresent()) {
+				propriOptRepo.delete(deleteList.get());
+				 return new ResponseEntity<>(HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+		}
 	
 	
 	
