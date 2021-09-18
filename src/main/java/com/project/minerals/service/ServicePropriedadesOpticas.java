@@ -87,7 +87,5 @@ public class ServicePropriedadesOpticas {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
 		}
-	
-	
-	
+ 
 }

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cristalografia {
@@ -15,6 +16,9 @@ public class Cristalografia {
 	private String HabitoCristalino;
 	private String particao;
 	private String diafaneidade;
+	
+	@ManyToOne
+	private Mineral mineral;
 	
 	public Long getId() {
 		return id;
@@ -46,5 +50,10 @@ public class Cristalografia {
 	public void setDiafaneidade(String diafaneidade) {
 		this.diafaneidade = diafaneidade;
 	}
-
+	public Mineral getMineral() {
+		return mineral;
+	}
+	public void setMineral(Mineral mineral) {
+		this.mineral = mineral;
+	}
 }

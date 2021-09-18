@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class PropriedadesOpticas {
@@ -15,6 +16,9 @@ public class PropriedadesOpticas {
 	private String pleocroismo;
 	private String sistema;
 	private String formula;
+	
+	@ManyToOne
+	private Mineral mineral;
 	
 	public Long getId() {
 		return id;
@@ -45,6 +49,12 @@ public class PropriedadesOpticas {
 	}
 	public void setFormula(String formula) {
 		this.formula = formula;
+	}
+	public Mineral getMineral() {
+		return mineral;
+	}
+	public void setMineral(Mineral mineral) {
+		this.mineral = mineral;
 	}
 	
 	
