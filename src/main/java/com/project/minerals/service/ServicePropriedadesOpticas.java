@@ -1,5 +1,7 @@
 package com.project.minerals.service;
 
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,4 +41,19 @@ public class ServicePropriedadesOpticas {
 			throw new ValidatingDuplicateValues(String.format("informaçãoes já cadastrada por favor insira valores validos", propriedadesOpticas));
 		}
 	}
+	
+	public ResponseEntity<PropriedadesOpticasDTO> listPropriedadesfisicas (Long id) {
+			Optional<PropriedadesOpticas> findId = propriOptRepo.findById(id);
+			if(findId.isPresent()) {
+				return ResponseEntity.ok(modelMapper.map(findId.get(), PropriedadesOpticasDTO.class));
+			} else {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+		}
+		
+	
+	
+	
+	
+	
 }
