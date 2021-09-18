@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Propriedadesfisicas {
@@ -18,6 +19,9 @@ public class Propriedadesfisicas {
 	private String fratura;
 	private String Brilho;
 	private String tenacidade;
+	
+	@ManyToOne
+	private Mineral mineral;
 	
 	public Long getId() {
 		return id;
@@ -66,6 +70,12 @@ public class Propriedadesfisicas {
 	}
 	public void setTenacidade(String tenacidade) {
 		this.tenacidade = tenacidade;
+	}
+	public Mineral getMineral() {
+		return mineral;
+	}
+	public void setMineral(Mineral mineral) {
+		this.mineral = mineral;
 	}
 	
 	
