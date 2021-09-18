@@ -1,6 +1,7 @@
 package com.project.minerals.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,6 +42,11 @@ public class PropriedadesfisicasController {
 	@PutMapping("/{id}")
 	public ResponseEntity<PropriedadesfisicasDTO> updateMinerals(@RequestBody Propriedadesfisicas propriedadesfisicas, @PathVariable Long id) { 
 		return servicePropriedadesfisicas.updatePropriedade(id, propriedadesfisicas);	
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Propriedadesfisicas> delete(@PathVariable Long id) {
+		return servicePropriedadesfisicas.deletePropriedade(id);
 	}
 	
 }

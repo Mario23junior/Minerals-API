@@ -84,6 +84,16 @@ public class ServicePropriedadesfisicas {
  	   
  		}
  		
+ 		public ResponseEntity<Propriedadesfisicas> deletePropriedade(Long id) {
+ 				Optional<Propriedadesfisicas> deleteList = propriedadesfisicasRepository.findById(id);
+ 				if(deleteList.isPresent()) {
+ 				     propriedadesfisicasRepository.delete(deleteList.get());
+ 					 return new ResponseEntity<>(HttpStatus.OK);
+ 				} else {
+ 					return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+ 				}
+ 			}
+ 		
 	}
 
 
