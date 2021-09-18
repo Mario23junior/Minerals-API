@@ -3,9 +3,6 @@ package com.project.minerals.DTOModel;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.project.minerals.model.Cristalografia;
-import com.project.minerals.model.PropriedadesOpticas;
-import com.project.minerals.model.Propriedadesfisicas;
 
 public class MineralsDTO {
    
@@ -16,13 +13,13 @@ public class MineralsDTO {
 	private String classificacao;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
-	private List<Cristalografia> cristalografias;
+	private List<CristalografiaDTO> cristalografias;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
-	private List<Propriedadesfisicas> propriedadesfisicas;
+	private List<PropriedadesfisicasDTO> propriedadesfisicas;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
-	private List<PropriedadesOpticas> propriedadesOpticas;
+	private List<PropriedadesOpticasDTO> propriedadesOpticas;
 	
 	public String getNome() {
 		return nome;
@@ -54,24 +51,26 @@ public class MineralsDTO {
 	public void setClassificacao(String classificacao) {
 		this.classificacao = classificacao;
 	}
-	public List<Cristalografia> getCristalografias() {
+	public List<CristalografiaDTO> getCristalografias() {
 		return cristalografias;
 	}
-	public void setCristalografias(List<Cristalografia> cristalografias) {
+	public void setCristalografias(List<CristalografiaDTO> cristalografias) {
 		this.cristalografias = cristalografias;
 	}
-	public List<Propriedadesfisicas> getPropriedadesfisicas() {
+	public List<PropriedadesfisicasDTO> getPropriedadesfisicas() {
 		return propriedadesfisicas;
 	}
-	public void setPropriedadesfisicas(List<Propriedadesfisicas> propriedadesfisicas) {
+	public void setPropriedadesfisicas(List<PropriedadesfisicasDTO> propriedadesfisicas) {
 		this.propriedadesfisicas = propriedadesfisicas;
 	}
-	public List<PropriedadesOpticas> getPropriedadesOpticas() {
+	public List<PropriedadesOpticasDTO> getPropriedadesOpticas() {
 		return propriedadesOpticas;
 	}
-	public void setPropriedadesOpticas(List<PropriedadesOpticas> propriedadesOpticas) {
+	public void setPropriedadesOpticas(List<PropriedadesOpticasDTO> propriedadesOpticas) {
 		this.propriedadesOpticas = propriedadesOpticas;
 	}
 	
+	
+
 	
 }
