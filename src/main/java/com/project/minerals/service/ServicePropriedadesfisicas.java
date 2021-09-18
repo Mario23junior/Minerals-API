@@ -62,8 +62,30 @@ public class ServicePropriedadesfisicas {
  				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
  			}
  		}
+ 	
+ 		public ResponseEntity<PropriedadesfisicasDTO> updatePropriedade(Long id, Propriedadesfisicas propriedadesfisicas) {
+ 		   ExceptionDuplicateDataPropriedadesfisicas(propriedadesfisicas);
+ 		   Optional<Propriedadesfisicas> listaData = propriedadesfisicasRepository.findById(id);
+ 		   if(listaData.isPresent()) {
+ 			  Propriedadesfisicas propriedades = listaData.get();
+ 			  propriedades.setPesoEspecifico(propriedadesfisicas.getPesoEspecifico());
+ 			  propriedades.setDureza(propriedadesfisicas.getDureza());
+ 			  propriedades.setPontoDeFusao(propriedadesfisicas.getPontoDeFusao());
+ 			  propriedades.setCilvagem(propriedadesfisicas.getCilvagem());
+ 			  propriedades.setFratura(propriedadesfisicas.getFratura());
+ 			  propriedades.setBrilho(propriedadesfisicas.getBrilho());
+ 			  propriedades.setTenacidade(propriedadesfisicas.getTenacidade());
+ 			  
+ 			  propriedadesfisicasRepository.save(propriedades);
+ 			  return ResponseEntity.ok(modelMapper.map(propriedades, PropriedadesfisicasDTO.class));
+ 		   } else {
+ 			   return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+ 		   }
+ 	   
+ 		}
  		
 	}
+
 
 
 

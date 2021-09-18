@@ -4,11 +4,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.minerals.DTOModel.PropriedadesfisicasDTO;
+import com.project.minerals.model.Propriedadesfisicas;
 import com.project.minerals.service.ServicePropriedadesfisicas;
 
 @RestController
@@ -35,4 +37,10 @@ public class PropriedadesfisicasController {
 	public ResponseEntity<PropriedadesfisicasDTO> listPorTenacidade(@PathVariable String tenacidade) {
 		return servicePropriedadesfisicas.listByTenacidade(tenacidade);
 	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<PropriedadesfisicasDTO> updateMinerals(@RequestBody Propriedadesfisicas propriedadesfisicas, @PathVariable Long id) { 
+		return servicePropriedadesfisicas.updatePropriedade(id, propriedadesfisicas);	
+	}
+	
 }
