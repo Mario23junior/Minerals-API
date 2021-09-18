@@ -30,4 +30,10 @@ public class PropriedadesOpticasController {
 	 public ResponseEntity<PropriedadesOpticasDTO> list(@PathVariable Long id) {
 		 return servicePropriedadesOpticas.listPropriedadesfisicas(id);
 	 }
+	 
+	 @GetMapping("sistema/{sistema}")
+	 public ResponseEntity<PropriedadesOpticasDTO> listSistema (@PathVariable String sistema) {
+		 return servicePropriedadesOpticas.listBySistema(sistema);
+		 
+	 }
 }
