@@ -59,7 +59,24 @@ public class ServicePropriedadesOpticas {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
 		}
-	
+
+
+	public ResponseEntity<PropriedadesOpticasDTO>  updatePropriedadesOpticas(Long id, PropriedadesOpticas propriedadesOpticas) {
+		ExceptionDuplicateData(propriedadesOpticas);
+		Optional<PropriedadesOpticas> listList = propriOptRepo.findById(id);
+		if(listList.isPresent()){
+			PropriedadesOpticas propriedadesOpt = listList.get();
+			propriedadesOpt.setBirrefringencia(propriedadesOpticas.getBirrefringencia());
+			propriedadesOpt.setPleocroismo(propriedadesOpticas.getPleocroismo());
+			propriedadesOpt.setSistema(propriedadesOpticas.getSistema());
+			
+		    
+			propriOptRepo.save(propriedadesOpt);
+		   return ResponseEntity.ok(modelMapper.map(propriedadesOpt, PropriedadesOpticasDTO.class));
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
 	
 	
 	
