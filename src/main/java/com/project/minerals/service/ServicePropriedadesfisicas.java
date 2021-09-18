@@ -37,7 +37,6 @@ public class ServicePropriedadesfisicas {
  		
  		public void ExceptionDuplicateDataPropriedadesfisicas(Propriedadesfisicas propriedadesfisicas) {
  			Propriedadesfisicas findInfo = propriedadesfisicasRepository.findByTenacidade (propriedadesfisicas.getTenacidade());
- 			
  			if(findInfo != null && findInfo.getId() != propriedadesfisicas.getId()) {
  				throw new ValidatingDuplicateValues(String.format(" Informações já cadastrado no banco de dados por favor insira um novo cadastro"));
  			}
@@ -92,21 +91,5 @@ public class ServicePropriedadesfisicas {
  				} else {
  					return new ResponseEntity<>(HttpStatus.NO_CONTENT);
  				}
- 			}
- 		
+ 			} 		
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

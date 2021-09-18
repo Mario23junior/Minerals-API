@@ -7,4 +7,6 @@ import com.project.minerals.model.PropriedadesOpticas;
 
 public interface PropriedadesOpticasRepository extends JpaRepository<PropriedadesOpticas, Long>{
 
+	PropriedadesOpticas findByFormula(String formula);
+
 }
