@@ -51,6 +51,14 @@ public class ServicePropriedadesOpticas {
 			}
 		}
 		
+	public ResponseEntity<PropriedadesOpticasDTO> listBySistema(String sistema) {
+			Optional<PropriedadesOpticas> listData = propriOptRepo.findBySistemaIgnoreCaseContaining(sistema);
+			if(listData.isPresent()) {
+				return ResponseEntity.ok(modelMapper.map(listData.get(), PropriedadesOpticasDTO.class));
+			} else {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+		}
 	
 	
 	
