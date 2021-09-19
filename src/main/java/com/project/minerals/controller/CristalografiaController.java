@@ -37,7 +37,7 @@ public class CristalografiaController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<CristalografiaDTO> update(@PathVariable Long id, @RequestBody Cristalografia cristalografia) {
+	public ResponseEntity<CristalografiaDTO> update(@PathVariable Long id, @Valid @RequestBody Cristalografia cristalografia) {
 		return serviceCristalografia.updateCristalo(id, cristalografia);
 	}
 	
