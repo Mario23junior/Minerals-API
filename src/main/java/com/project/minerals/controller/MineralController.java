@@ -1,5 +1,7 @@
 package com.project.minerals.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +27,7 @@ public class MineralController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<MineralsDTO> save(@RequestBody MineralsDTO mineralsDto){
+	public ResponseEntity<MineralsDTO> save(@RequestBody @Valid MineralsDTO mineralsDto){
 		return  serviceMineral.saveMineral(mineralsDto);
 	}
 	
