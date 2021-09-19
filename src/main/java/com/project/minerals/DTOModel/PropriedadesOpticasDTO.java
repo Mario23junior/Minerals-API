@@ -1,19 +1,24 @@
 package com.project.minerals.DTOModel;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class PropriedadesOpticasDTO {
    
 	@NotBlank
+	@NotNull
 	private String birrefringencia;
 	
 	@NotBlank
+	@NotNull
 	private String pleocroismo;
 	
 	@NotBlank
+	@NotNull
 	private String sistema;
 	
 	@NotBlank
+	@NotNull
 	private String formula;
 	
 	public String getBirrefringencia() {

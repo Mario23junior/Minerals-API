@@ -1,19 +1,24 @@
 package com.project.minerals.DTOModel;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class CristalografiaDTO {
     
 	@NotBlank
+	@NotNull
  	private String sistemaCristalino;
 	
 	@NotBlank
+	@NotNull
 	private String HabitoCristalino;
 	
 	@NotBlank
+	@NotNull
 	private String particao;
 	
 	@NotBlank
+	@NotNull
 	private String diafaneidade;
 	
 
