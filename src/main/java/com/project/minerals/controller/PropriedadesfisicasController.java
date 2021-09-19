@@ -1,5 +1,7 @@
 package com.project.minerals.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +27,7 @@ public class PropriedadesfisicasController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<PropriedadesfisicasDTO> save (@RequestBody PropriedadesfisicasDTO proDto){
+	public ResponseEntity<PropriedadesfisicasDTO> save (@RequestBody @Valid PropriedadesfisicasDTO proDto){
 		return servicePropriedadesfisicas.savePropriedadeFisica(proDto);
 	}
 	
@@ -40,7 +42,7 @@ public class PropriedadesfisicasController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<PropriedadesfisicasDTO> updateMinerals(@RequestBody Propriedadesfisicas propriedadesfisicas, @PathVariable Long id) { 
+	public ResponseEntity<PropriedadesfisicasDTO> updateMinerals(@RequestBody  @Valid Propriedadesfisicas propriedadesfisicas, @PathVariable Long id) { 
 		return servicePropriedadesfisicas.updatePropriedade(id, propriedadesfisicas);	
 	}
 	

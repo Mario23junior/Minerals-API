@@ -47,7 +47,7 @@ public class MineralController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<MineralsDTO> update(@PathVariable Long id, @RequestBody Mineral mineral){
+	public ResponseEntity<MineralsDTO> update(@PathVariable Long id,@Valid @RequestBody Mineral mineral){
 		return serviceMineral.updateMinerals(id, mineral);
 	}
 	
