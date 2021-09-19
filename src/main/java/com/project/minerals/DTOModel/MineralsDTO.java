@@ -2,14 +2,25 @@ package com.project.minerals.DTOModel;
 
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 public class MineralsDTO {
    
+	@NotBlank
  	private String nome;
+	
+	@NotBlank
 	private String categoria;
+	
+	@NotBlank
 	private String cor;
+	
+	@NotBlank
 	private String formulaQuimica;
+	
+	@NotBlank
 	private String classificacao;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)

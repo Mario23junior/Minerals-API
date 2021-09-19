@@ -3,6 +3,7 @@ package com.project.minerals.ExceptionHandler;
 import java.util.Date;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -12,8 +13,8 @@ import com.project.minerals.Exceptions.ValidatingDuplicateValues;
 
 @RestControllerAdvice
 public class ExceptionHandlerEngine {
-     
-	 @ExceptionHandler(ValidatingDuplicateValues.class)
+    
+	@ExceptionHandler(ValidatingDuplicateValues.class)
 	 @ResponseStatus(value = HttpStatus.NOT_FOUND)
 	 public ErroModelResponse NotValueData(ValidatingDuplicateValues ex , WebRequest request) {
 		 ErroModelResponse erroReturn = new ErroModelResponse(
@@ -23,7 +24,22 @@ public class ExceptionHandlerEngine {
 				 request.getDescription(false));
 		 return erroReturn;
 	 }
-	 	 
+	
+	
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	 @ResponseStatus(value = HttpStatus.NOT_FOUND)
+	 public ErroModelResponse NotValueData(MethodArgumentNotValidException ex , WebRequest request) {
+		
+		String ErrorFieldsMessage = "Por favor insira os valores validos , não e permitido campos em branco ";
+		
+		 ErroModelResponse erroReturn = new ErroModelResponse(
+				 HttpStatus.NOT_FOUND.value(),
+				 new Date(),
+				 ErrorFieldsMessage,
+				 request.getDescription(false));
+		 return erroReturn;
+	 }
+	 
 	 @ExceptionHandler(Exception.class)
 	 @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
 	 public ErroModelResponse ErroModelResponse(Exception ex, WebRequest request) {
