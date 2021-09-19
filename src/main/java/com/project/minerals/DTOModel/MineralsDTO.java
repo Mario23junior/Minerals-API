@@ -3,12 +3,14 @@ package com.project.minerals.DTOModel;
 import java.util.List;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 public class MineralsDTO {
    
 	@NotBlank
+	@NotNull
  	private String nome;
 	
 	@NotBlank
