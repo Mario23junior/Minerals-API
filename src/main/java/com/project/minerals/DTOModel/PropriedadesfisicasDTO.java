@@ -1,13 +1,28 @@
 package com.project.minerals.DTOModel;
 
+import javax.validation.constraints.NotBlank;
+
 public class PropriedadesfisicasDTO {
    
+	@NotBlank
  	private String pesoEspecifico;
+	
+	@NotBlank
 	private Integer dureza;
+	
+	@NotBlank
 	private String pontoDeFusao;
+	
+	@NotBlank
 	private String cilvagem;
+	
+	@NotBlank
 	private String fratura;
+	
+	@NotBlank
 	private String Brilho;
+	
+	@NotBlank
 	private String tenacidade;
 	
 	public String getPesoEspecifico() {
