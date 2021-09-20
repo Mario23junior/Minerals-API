@@ -1,6 +1,6 @@
 <p align="center"><img src="/img/logo.gif" width="577px" height="592px"></p>
 
-# API de Consulta de Minerais
+# API de Consultas de  informações sobre Minerais
 
 api de listagem de dados de minerais 
 
