@@ -1,4 +1,4 @@
-<p align="center"><img src="/img/logo.gif" width="577px" height="412px"></p>
+<p align="center"><img src="/img/logo.gif" width="577px" height="592px"></p>
 
 # API de Consulta de Minerais
 
