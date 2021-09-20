@@ -47,7 +47,7 @@ public class ServicePropriedadesOpticas {
 			if(findId.isPresent()) {
 				return ResponseEntity.ok(modelMapper.map(findId.get(), PropriedadesOpticasDTO.class));
 			} else {
-				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 			}
 		}
 		
@@ -56,7 +56,7 @@ public class ServicePropriedadesOpticas {
 			if(listData.isPresent()) {
 				return ResponseEntity.ok(modelMapper.map(listData.get(), PropriedadesOpticasDTO.class));
 			} else {
-				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 			}
 		}
 
@@ -74,7 +74,7 @@ public class ServicePropriedadesOpticas {
 			propriOptRepo.save(propriedadesOpt);
 		   return ResponseEntity.ok(modelMapper.map(propriedadesOpt, PropriedadesOpticasDTO.class));
 		} else {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
 	
@@ -84,7 +84,7 @@ public class ServicePropriedadesOpticas {
 				propriOptRepo.delete(deleteList.get());
 				 return new ResponseEntity<>(HttpStatus.OK);
 			} else {
-				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 			}
 		}
  

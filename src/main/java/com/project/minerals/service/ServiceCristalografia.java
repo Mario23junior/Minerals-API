@@ -47,7 +47,7 @@ public class ServiceCristalografia {
 	    if (listIdInfo.isPresent()) {
 	        return ResponseEntity.ok(modelMapper.map(listIdInfo.get(), CristalografiaDTO.class));
 	    } else {
-	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	    }
 	}
 	 
@@ -66,7 +66,7 @@ public class ServiceCristalografia {
  			cristalografiaRepository.save(cristaloInstace);
  			return ResponseEntity.ok(modelMapper.map(cristaloInstace, CristalografiaDTO.class));
 		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
 	
@@ -77,7 +77,7 @@ public class ServiceCristalografia {
 			   cristalografiaRepository.delete(listId.get());
 			   return new ResponseEntity<>(HttpStatus.OK);
 		   }else {
-			   return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			   return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		   }
 	}
 	

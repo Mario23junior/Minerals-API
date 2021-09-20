@@ -14,15 +14,19 @@ public class MineralsDTO {
  	private String nome;
 	
 	@NotBlank
+	@NotNull
 	private String categoria;
 	
 	@NotBlank
+	@NotNull
 	private String cor;
 	
 	@NotBlank
+	@NotNull
 	private String formulaQuimica;
 	
 	@NotBlank
+	@NotNull
 	private String classificacao;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
@@ -82,8 +86,5 @@ public class MineralsDTO {
 	public void setPropriedadesOpticas(List<PropriedadesOpticasDTO> propriedadesOpticas) {
 		this.propriedadesOpticas = propriedadesOpticas;
 	}
-	
-	
 
-	
 }
