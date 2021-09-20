@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 public class MineralsDTO {
@@ -68,18 +69,24 @@ public class MineralsDTO {
 	public void setClassificacao(String classificacao) {
 		this.classificacao = classificacao;
 	}
+	
+	@JsonIgnore
 	public List<CristalografiaDTO> getCristalografias() {
 		return cristalografias;
 	}
 	public void setCristalografias(List<CristalografiaDTO> cristalografias) {
 		this.cristalografias = cristalografias;
 	}
+	
+	@JsonIgnore
 	public List<PropriedadesfisicasDTO> getPropriedadesfisicas() {
 		return propriedadesfisicas;
 	}
 	public void setPropriedadesfisicas(List<PropriedadesfisicasDTO> propriedadesfisicas) {
 		this.propriedadesfisicas = propriedadesfisicas;
 	}
+	
+	@JsonIgnore
 	public List<PropriedadesOpticasDTO> getPropriedadesOpticas() {
 		return propriedadesOpticas;
 	}
