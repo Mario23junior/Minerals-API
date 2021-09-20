@@ -48,7 +48,7 @@ public class ServicePropriedadesfisicas {
  			if(findId.isPresent()) {
  				return ResponseEntity.ok(modelMapper.map(findId.get(), PropriedadesfisicasDTO.class));
  			} else {
- 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+ 				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
  			}
  		}
  		
@@ -58,7 +58,7 @@ public class ServicePropriedadesfisicas {
  			if(listData.isPresent()) {
  				return ResponseEntity.ok(modelMapper.map(listData.get(), PropriedadesfisicasDTO.class));
  			} else {
- 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+ 				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
  			}
  		}
  	
@@ -78,7 +78,7 @@ public class ServicePropriedadesfisicas {
  			  propriedadesfisicasRepository.save(propriedades);
  			  return ResponseEntity.ok(modelMapper.map(propriedades, PropriedadesfisicasDTO.class));
  		   } else {
- 			   return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+ 			   return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
  		   }
  	   
  		}
@@ -89,7 +89,7 @@ public class ServicePropriedadesfisicas {
  				     propriedadesfisicasRepository.delete(deleteList.get());
  					 return new ResponseEntity<>(HttpStatus.OK);
  				} else {
- 					return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+ 					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
  				}
  			} 		
 	}

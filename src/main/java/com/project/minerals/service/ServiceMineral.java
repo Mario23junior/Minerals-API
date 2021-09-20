@@ -48,7 +48,7 @@ public class ServiceMineral {
 		if(listMine.isPresent()) {
 			return ResponseEntity.ok(modelMapper.map(listMine.get(), MineralsDTO.class));
 		} else {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}	
 	}
 	
@@ -57,7 +57,7 @@ public class ServiceMineral {
 		if(listMine.isPresent()) {
 			return ResponseEntity.ok(modelMapper.map(listMine.get(), MineralsDTO.class));
 		} else {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}	
 	}
 	
@@ -66,7 +66,7 @@ public class ServiceMineral {
 		if(listClasse.isPresent()) {
 			return ResponseEntity.ok(modelMapper.map(listClasse.get(), MineralsDTO.class));
 		} else {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}	
 	}
 	
@@ -83,7 +83,7 @@ public class ServiceMineral {
 		   mineralsRepository.save(mineralsData);
 		   return ResponseEntity.ok(modelMapper.map(mineralsData, MineralsDTO.class));
 		} else {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
 	
@@ -93,7 +93,7 @@ public class ServiceMineral {
 		     mineralsRepository.delete(deleteList.get());
 			 return new ResponseEntity<>(HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
 
