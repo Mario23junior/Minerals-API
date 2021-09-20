@@ -9,9 +9,8 @@ public class PropriedadesfisicasDTO {
 	@NotNull
  	private String pesoEspecifico;
 	
-	@NotBlank
 	@NotNull
-	private Integer dureza;
+ 	private Integer dureza;
 	
 	@NotBlank
 	@NotNull
