@@ -36,6 +36,7 @@ Mencione as ferramentas que você usou para criar seu projeto
 * [Maven](https://maven.apache.org/) - Gerente de Dependência
 * [Travis-CI](https://travis-ci.org/) - Usando a integração contínua
 * [Swagger](https://swagger.io/tools/swagger-ui/) - descrição de interface para descrever APIs RESTfull
+* [Flyway](https://flywaydb.org/)
 
 
 ## Para obter mais detalhes da documentação acesso o swagger
