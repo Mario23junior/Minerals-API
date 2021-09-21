@@ -36,14 +36,17 @@ Mencione as ferramentas que você usou para criar seu projeto
 * [Maven](https://maven.apache.org/) - Gerente de Dependência
 * [Travis-CI](https://travis-ci.org/) - Usando a integração contínua
 * [Swagger](https://swagger.io/tools/swagger-ui/) - descrição de interface para descrever APIs RESTfull
-* [Flyway](https://flywaydb.org/)
+* [Flyway](https://flywaydb.org/) -  Versionamento e administração do Banco de dados, com ele podemos conduzir a evolução do banco de dados
 
 
-## Para obter mais detalhes da documentação acesso o swagger
+## Para obter mais detalhes da documentação acesse o swagger
 ```
 http://localhost:8080/swagger-ui.html
 ```
-
+## Acesse a enderenço para ter acesso  aos dados finais, com os valores de retorno já predefinidos
+```
+localhost:8080/api/v1/geo/minerais/
+```
 ## Uso
 
 ## Resultado dos dados da API
