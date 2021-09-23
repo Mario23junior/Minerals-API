@@ -34,7 +34,7 @@ Mencione as ferramentas que você usou para criar seu projeto
 
 * [SpringBoot](https://spring.io/projects/spring-boot) - O framework web usado
 * [Maven](https://maven.apache.org/) - Gerente de Dependência
-* [Travis-CI] https://app.travis-ci.com/github/Mario23junior/Minerals-API - Usando a integração contínua
+* [Travis-CI](https://app.travis-ci.com/github/Mario23junior/Minerals-API) - Usando a integração contínua
 * [Swagger](https://swagger.io/tools/swagger-ui/) - descrição de interface para descrever APIs RESTfull
 * [Flyway](https://flywaydb.org/) -  Versionamento e administração do Banco de dados, com ele podemos conduzir a evolução do banco de dados
 
