@@ -51,7 +51,7 @@ localhost:8080/api/v1/geo/minerais/
 
 ## Resultado dos dados da API
 
-```
+```json
 [
     {
         "nome": "Quartzo",
